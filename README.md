@@ -93,6 +93,42 @@ equivalent. Review the resulting security configuration carefully and validate
 the migrated application. `RestTemplate` is left in place because Boot 3 does
 not require replacing it.
 
+## Publish the custom recipe
+
+The recipe module is prepared for Maven Central under the verified namespace
+`io.github.nikv1811`. Before the first release, select a project license, add its
+license file and metadata, and change the recipe version in
+`rewrite-recipes/pom.xml` to a non-`SNAPSHOT` release version.
+
+Configure a Central Portal user token in `~/.m2/settings.xml` under server ID
+`central`, and make a GPG signing key available to GnuPG. Keep both credentials
+and private keys outside this repository. Then deploy the recipe artifact:
+
+```bash
+cd rewrite-recipes
+mvn -Pcentral-publish clean deploy
+```
+
+The `central-publish` profile attaches source and Javadoc JARs, signs the
+deployment, and uploads it to the Central Portal. Review the validation result
+and publish the deployment in the Portal. `autoPublish` is disabled so the
+Portal does not publish a release before you review it.
+
+After the release is available, set the consuming project's `recipe.version`
+property to that released version. For example, with version `0.0.1`:
+
+```xml
+<dependency>
+  <groupId>io.github.nikv1811</groupId>
+  <artifactId>legacy-spring-boot2-openrewrite-recipes</artifactId>
+  <version>0.0.1</version>
+</dependency>
+```
+
+The root practice project's OpenRewrite plugin already loads this artifact as a
+plugin dependency. Update its `recipe.version` property to use the Central
+release instead of the local `0.0.1-SNAPSHOT` build.
+
 ## Suggested migration exercises
 
 1. Upgrade the Maven parent and Java version to a Boot 3 / Java 17 target.
