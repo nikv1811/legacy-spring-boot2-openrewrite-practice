@@ -96,9 +96,8 @@ not require replacing it.
 ## Publish the custom recipe
 
 The recipe module is prepared for Maven Central under the verified namespace
-`io.github.nikv1811`. Before the first release, select a project license, add its
-license file and metadata, and change the recipe version in
-`rewrite-recipes/pom.xml` to a non-`SNAPSHOT` release version.
+`io.github.nikv1811`, with Apache License 2.0 metadata and initial release
+version `0.0.1`.
 
 Configure a Central Portal user token in `~/.m2/settings.xml` under server ID
 `central`, and make a GPG signing key available to GnuPG. Keep both credentials

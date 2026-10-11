@@ -4,10 +4,17 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.nikv1811</groupId>
     <artifactId>legacy-spring-boot2-openrewrite-recipes</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>Legacy Spring Boot 2 OpenRewrite Recipes</name>
     <description>OpenRewrite recipes for migrating legacy Spring Security authorization DSL calls.</description>
     <url>https://github.com/nikv1811/legacy-spring-boot2-openrewrite-practice</url>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
     <scm>
         <connection>scm:git:https://github.com/nikv1811/legacy-spring-boot2-openrewrite-practice.git</connection>
         <developerConnection>scm:git:https://github.com/nikv1811/legacy-spring-boot2-openrewrite-practice.git</developerConnection>
@@ -16,6 +23,7 @@
     </scm>
     <developers>
         <developer>
+            <id>nikv1811</id>
             <name>Nikhil Verma</name>
             <url>https://github.com/nikv1811</url>
         </developer>
@@ -48,6 +56,18 @@
         </dependency>
     </dependencies>
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>${project.basedir}/..</directory>
+                <targetPath>META-INF</targetPath>
+                <includes>
+                    <include>LICENSE</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -20,7 +20,7 @@
         <java.version>11</java.version>
         <rewrite.version>6.46.1</rewrite.version>
         <rewrite.spring.version>6.37.1</rewrite.spring.version>
-        <recipe.version>0.0.1-SNAPSHOT</recipe.version>
+        <recipe.version>0.0.1</recipe.version>
     </properties>
 
     <pluginRepositories>
